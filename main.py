@@ -65,6 +65,18 @@ def echo(message):
         bot.send_message(user_id, 'ERROR')
 
 
+@bot.message_handler(commands=['uslugi'])
+def echo(message):
+    user_id = message.chat.id
+    try:
+        keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
+
+        keyboard.row("🗒Каталог🗒", "⚠️Дополнительная информация⚠️")
+
+        bot.send_message(user_id, "Привет. Наш бот предоставляет услуги подкрутки шанса на сайте FORCEDROP.\nДля получения услуги подкрутки вам нужно всего лишь купить у нас ссылку и активировать ее.\nУдачи тебе!!!", reply_markup=keyboard)
+    except:
+        bot.send_message(user_id, 'ERROR')
+
 @bot.message_handler(content_types=['text'])
 def lalala(message):
     user_id = message.chat.id
